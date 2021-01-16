@@ -1,24 +1,6 @@
 export const initialState = {
-  basket: [
-    {
-      id: "122",
-      title:
-        "Dell U2719D Écran de PC 27 InfinityEdge UltraSharp Wide Quad HD LCD à Rétroéclairage LED, IPS, 60 Hz, 8 ms, Noir",
-      price: 350,
-      rating: 4,
-      image:
-        "https://images-na.ssl-images-amazon.com/images/I/71Dhr7vaPiL._AC_SL1280_.jpg",
-    },
-    {
-      id: "122",
-      title:
-        "Dell U2719D Écran de PC 27 InfinityEdge UltraSharp Wide Quad HD LCD à Rétroéclairage LED, IPS, 60 Hz, 8 ms, Noir",
-      price: 350,
-      rating: 4,
-      image:
-        "https://images-na.ssl-images-amazon.com/images/I/71Dhr7vaPiL._AC_SL1280_.jpg",
-    },
-  ],
+  basket: [],
+  user: null,
 };
 
 export const getBAsketTotal = (basket) =>
@@ -27,6 +9,11 @@ export const getBAsketTotal = (basket) =>
 function reducer(state, action) {
   console.log(action);
   switch (action.type) {
+    case "SET_USER":
+      return {
+        ...state,
+        user: action.user,
+      };
     case "ADD_TO_BASKET":
       return { ...state, basket: [...state.basket, action.item] };
 
